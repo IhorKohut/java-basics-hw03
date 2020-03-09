@@ -1,4 +1,5 @@
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import static org.testng.Assert.*;
 public class StudentTest {
   List<Student> students = new ArrayList<>();
 
-  @Test
+  @AfterTest
   public void testGetAvgRating() {
 
     assertEquals(Student.getAvgRating(), 0.0d, "Average rating is wrong");
@@ -83,7 +84,7 @@ public class StudentTest {
     students.add(student2);
 
     assertFalse(student1.betterStudent(student2),
-        student1 + " is not better than " + student2);
+            student1 + " is not better than " + student2);
 
     Student student3 = new Student("Petro");
     student3.setRating(51);
@@ -96,7 +97,7 @@ public class StudentTest {
     students.add(student4);
 
     assertTrue(student3.betterStudent(student4),
-        student1 + " is not better than " + student2);
+            student1 + " is not better than " + student2);
   }
 
   @Test
@@ -129,10 +130,10 @@ public class StudentTest {
     students.add(student);
 
     assertTrue(student.toString().contains("Petro"),
-        "toString method does not contains student's name");
+            "toString method does not contains student's name");
 
     assertTrue(student.toString().contains("51"),
-        "toString method does not contains student's rating");
+            "toString method does not contains student's rating");
   }
 
   @AfterMethod
